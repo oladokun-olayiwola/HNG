@@ -1,4 +1,5 @@
 const express = require("express")
+const moment = require("moment")
 const app = express()
 
 // Function to get the current UTC time within a +/-2 minute window
@@ -15,7 +16,7 @@ const getCurrentUTCTime = () => {
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
   
     // Get the current UTC time within a +/-2 minute window
-    const currentUTCTime = getCurrentUTCTime();
+    const currentUTCTime = moment.utc().format()
   
     // GitHub file and repository URLs
     const githubFileURL = 'https://github.com/oladokun-olayiwola/HNG/blob/main/stage/index.js';
