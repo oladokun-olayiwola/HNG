@@ -8,7 +8,7 @@ function getCurrentUTCTime() {
     return utcTime.toISOString();
   }
 
-  app.get('/api', (req, res) => {
+  app.get('/', (req, res) => {
     const slackName = req.query.slack_name || 'Oladokun Olayiwola';
     const track = req.query.track || 'backend';
   
@@ -35,8 +35,9 @@ function getCurrentUTCTime() {
   
     res.json(response);
   });
+  const PORT = process.env.PORT || 4000
 
 app.on('error', console.error)
-.listen("4000", () => {
+.listen(PORT, () => {
     console.log("Your server is running on port 4000 sir");
 })
