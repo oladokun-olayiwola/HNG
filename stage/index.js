@@ -2,11 +2,12 @@ const express = require("express")
 const app = express()
 
 // Function to get the current UTC time within a +/-2 minute window
-function getCurrentUTCTime() {
-    const now = new Date();
-    const utcTime = new Date(now.getTime() + (now.getTimezoneOffset() + 2 * 60) * 60 * 1000); // Adjust for UTC+2
-    return utcTime.toISOString();
-  }
+const getCurrentUTCTime = () => {
+  const now = new Date();
+  const offset = now.getTimezoneOffset() / 60; // Convert to hours
+  const utcTime = new Date(now.getTime() + offset * 60 * 60 * 1000);
+  return utcTime.toISOString();
+};
 
   app.get('/api', (req, res) => {
     const slackName = req.query.slack_name;
@@ -26,7 +27,7 @@ function getCurrentUTCTime() {
     const response = {
       slack_name: slackName,
       current_day: currentDay,
-      utc_time: currentUTCTime,
+      utc_time: currentUTCTime +- 2,
       track: track,
       github_file_url: githubFileURL,
       github_repo_url: githubRepoURL,
