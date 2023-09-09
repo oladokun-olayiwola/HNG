@@ -4,8 +4,14 @@ const app = express()
 
 // Function to get the current UTC time within a +/-2 minute window
 const getCurrentUTCTime = () => {
-  const date =  new Date().toISOString();
-  return date;
+  const now = new Date();
+  const offset = now.getTimezoneOffset() / 60; // Convert to hours
+  const utcTime = new Date(now.getTime() + offset * 60 * 60 * 1000);
+
+  // Format UTC time as "YYYY-MM-DDTHH:MM:SS.SSSZ"
+  const isoFormattedUTC = utcTime.toISOString();
+  
+  return isoFormattedUTC;
 };
 
   app.get('/api', (req, res) => {
@@ -16,7 +22,7 @@ const getCurrentUTCTime = () => {
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
   
     // Get the current UTC time within a +/-2 minute window
-    const currentUTCTime = moment.utc().format()
+    const currentUTCTime = getCurrentUTCTime()
   
     // GitHub file and repository URLs
     const githubFileURL = 'https://github.com/oladokun-olayiwola/HNG/blob/main/stage/index.js';
