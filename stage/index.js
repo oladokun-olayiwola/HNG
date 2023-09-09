@@ -9,7 +9,7 @@ function getCurrentUTCTime() {
   }
 
   app.get('/api', (req, res) => {
-    const slackName = req.query.slack_name || 'example_name';
+    const slackName = req.query.slack_name || 'Oladokun Olayiwola';
     const track = req.query.track || 'backend';
   
     // Get the current day of the week
