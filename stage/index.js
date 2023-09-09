@@ -6,7 +6,11 @@ const getCurrentUTCTime = () => {
   const now = new Date();
   const offset = now.getTimezoneOffset() / 60; // Convert to hours
   const utcTime = new Date(now.getTime() + offset * 60 * 60 * 1000);
-  return utcTime.toISOString();
+
+  // Format UTC time as "YYYY-MM-DDTHH:MM:SSZ"
+  const isoFormattedUTC = utcTime.toISOString();
+  
+  return isoFormattedUTC;
 };
 
   app.get('/api', (req, res) => {
