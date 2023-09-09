@@ -8,9 +8,9 @@ function getCurrentUTCTime() {
     return utcTime.toISOString();
   }
 
-  app.get('/', (req, res) => {
-    const slackName = req.query.slack_name || 'Oladokun Olayiwola';
-    const track = req.query.track || 'backend';
+  app.get('/api', (req, res) => {
+    const slackName = req.query.slack_name;
+    const track = req.query.track;
   
     // Get the current day of the week
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
