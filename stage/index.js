@@ -19,8 +19,8 @@ function getCurrentUTCTime() {
     const currentUTCTime = getCurrentUTCTime();
   
     // GitHub file and repository URLs
-    const githubFileURL = 'https://github.com/username/repo/blob/main/file_name.ext';
-    const githubRepoURL = 'https://github.com/username/repo';
+    const githubFileURL = 'https://github.com/oladokun-olayiwola/HNG/blob/main/stage/index.js';
+    const githubRepoURL = 'https://github.com/oladokun-olayiwola/HNG/blob/main/stage';
   
     // Prepare the JSON response
     const response = {
@@ -38,5 +38,5 @@ function getCurrentUTCTime() {
 
 app.on('error', console.error)
 .listen("4000", () => {
-    console.log("YOur server is running on port 4k sir");
+    console.log("Your server is running on port 4000 sir");
 })
